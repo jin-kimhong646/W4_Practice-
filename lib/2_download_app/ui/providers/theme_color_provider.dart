@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 enum ThemeColor {
-  blue(color: Color.fromARGB(255, 34, 118, 229)),
-  green(color: Color.fromARGB(255, 229, 158, 221)),
-  pink(color: Color.fromARGB(255, 156, 202, 8));
+  blue(color: Color.fromARGB(255, 125, 178, 247)),
+  pink(color: Color.fromARGB(255, 229, 158, 221)),
+  green(color: Color.fromARGB(255, 156, 202, 8));
 
   const ThemeColor({required this.color});
 
@@ -11,4 +11,15 @@ enum ThemeColor {
   Color get backgroundColor => color.withAlpha(100);
 }
 
-ThemeColor currentThemeColor = ThemeColor.blue;
+// ThemeColor currentThemeColor = ThemeColor.blue;
+
+class ColorChangingNotifier extends ChangeNotifier {
+  ThemeColor _themeColor = ThemeColor.pink;
+
+  ThemeColor get themeColor => _themeColor;
+
+  void colorChanging(ThemeColor newColor) {
+    _themeColor = newColor;
+    notifyListeners();
+  }
+}

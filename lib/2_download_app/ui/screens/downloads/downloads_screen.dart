@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:w4_download_app/2_download_app/ui/theme/theme.dart';
 import '../../providers/theme_color_provider.dart';
-import '../../theme/theme.dart';
 import 'widgets/download_controler.dart';
 
 
@@ -23,8 +24,10 @@ class DownloadsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ColorChangingNotifier colorChangingNotifier = context.watch<ColorChangingNotifier> ();
     return Container(
-      color: currentThemeColor.backgroundColor,
+      // color: currentThemeColor.backgroundColor,
+      color: colorChangingNotifier.themeColor.backgroundColor, 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -32,7 +35,8 @@ class DownloadsScreen extends StatelessWidget {
           Text(
             "Downloads",
             style: AppTextStyles.heading.copyWith(
-              color: currentThemeColor.color,
+              // color: currentThemeColor.color,
+              color: colorChangingNotifier.themeColor.color , 
             ),
           ),
 

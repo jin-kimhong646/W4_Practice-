@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
   // int redTapCount = 0;
   // int blueTapCount = 0;
 
-  // void _incrementRedTapCount() {
+  // void _incrementRedTapCount() { 
   //   setState(() {
   //     redTapCount++;
   //   });
