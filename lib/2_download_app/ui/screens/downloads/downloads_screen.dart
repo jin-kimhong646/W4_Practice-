@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:w4_download_app/2_download_app/ui/screens/downloads/widgets/download_tile.dart';
 import 'package:w4_download_app/2_download_app/ui/theme/theme.dart';
 import '../../providers/theme_color_provider.dart';
 import 'widgets/download_controler.dart';
-
 
 class DownloadsScreen extends StatelessWidget {
   // Create the list of fake ressources
@@ -24,10 +24,11 @@ class DownloadsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ColorChangingNotifier colorChangingNotifier = context.watch<ColorChangingNotifier> ();
+    ColorChangingNotifier colorChangingNotifier = context
+        .watch<ColorChangingNotifier>();
     return Container(
       // color: currentThemeColor.backgroundColor,
-      color: colorChangingNotifier.themeColor.backgroundColor, 
+      color: colorChangingNotifier.themeColor.backgroundColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -36,13 +37,14 @@ class DownloadsScreen extends StatelessWidget {
             "Downloads",
             style: AppTextStyles.heading.copyWith(
               // color: currentThemeColor.color,
-              color: colorChangingNotifier.themeColor.color , 
+              color: colorChangingNotifier.themeColor.color,
             ),
           ),
 
           SizedBox(height: 50),
 
           // TODO - Add the Download tiles
+          ...controllers.map((con) => DownloadTile(controller: con), ),
         ],
       ),
     );
